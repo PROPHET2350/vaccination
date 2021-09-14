@@ -13,11 +13,12 @@ public class EmployeesDetails {
     private boolean state;
     @OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     private Employees employee;
-    @OneToOne(optional = false,cascade = CascadeType.ALL,fetch = FetchType.LAZY,mappedBy = "employeesDetails")
+    @OneToOne(optional = true,cascade = CascadeType.ALL,fetch = FetchType.LAZY,mappedBy = "employeesDetails")
     @JoinColumn(name = "vaccinationdetailsid")
     private VaccinationDetails vaccinationDetails;
 
-    private EmployeesDetails() {
+    protected EmployeesDetails() {
+
     }
 
     public EmployeesDetails(Long employeesdetailsid, Date birthday, String direction, String phone, boolean state, Employees employee) {

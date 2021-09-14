@@ -13,7 +13,8 @@ public class Users {
     @OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     private Employees employee;
 
-    private Users() {
+    protected Users() {
+
     }
 
     public Users(Long userid, String username, String password, String role, Employees employee) {

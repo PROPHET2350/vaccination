@@ -12,14 +12,14 @@ public class Employees {
     private String lastname;
     private String mail;
     private boolean status;
-    @OneToOne(optional = false,cascade = CascadeType.ALL,fetch = FetchType.LAZY,mappedBy = "employee")
+    @OneToOne(optional = true,cascade = CascadeType.ALL,fetch = FetchType.LAZY,mappedBy = "employee")
     @JoinColumn(name = "userid")
     private Users user;
-    @OneToOne(optional = false,cascade = CascadeType.ALL,fetch = FetchType.LAZY,mappedBy = "employee")
+    @OneToOne(optional = true,cascade = CascadeType.ALL,fetch = FetchType.LAZY,mappedBy = "employee")
     @JoinColumn(name = "employeesdetailsid")
     private EmployeesDetails details;
 
-    private Employees() {
+    protected Employees() {
     }
 
     public Employees(Long employeeid, String dni, String name, String lastname, String mail) {

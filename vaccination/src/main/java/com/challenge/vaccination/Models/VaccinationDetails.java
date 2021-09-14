@@ -13,7 +13,8 @@ public class VaccinationDetails {
     @OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     private EmployeesDetails employeesDetails;
 
-    private VaccinationDetails() {
+    protected VaccinationDetails() {
+
     }
 
     public VaccinationDetails(Long vaccinationdetailsid, String type, Date vaccinationDate, int doseNumber, EmployeesDetails employeesDetails) {
