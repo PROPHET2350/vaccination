@@ -12,4 +12,15 @@ public class Users {
     private String role;
     @OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     private Employees employee;
+
+    private Users() {
+    }
+
+    public Users(Long userid, String username, String password, String role, Employees employee) {
+        this.userid = userid;
+        this.username = username;
+        this.password = password;
+        this.role = role;
+        this.employee = employee;
+    }
 }
