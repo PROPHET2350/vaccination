@@ -15,8 +15,8 @@ public class EmployeesDetailsServices {
         this.employeesDetailsRepository = employeesDetailsRepository;
     }
 
-    public void CreateDetail(EmployeesDetails employeesDetail){
-        this.employeesDetailsRepository.save(employeesDetail);
+    public EmployeesDetails CreateDetail(EmployeesDetails employeesDetail){
+        return this.employeesDetailsRepository.save(employeesDetail);
     }
     public void UpdateDetail(EmployeesDetails employeesDetail){
         this.employeesDetailsRepository.save(employeesDetail);
