@@ -24,7 +24,7 @@ public class EmployeesDetailsServices {
     public void DeleteDetail(EmployeesDetails employeesDetail){
         this.employeesDetailsRepository.delete(employeesDetail);
     }
-    public EmployeesDetails searchByEmployeeId(Long id){
+    public EmployeesDetails searchByEmployeeId(String id){
         return this.employeesDetailsRepository.findByEmployeeEmployeeid(id);
     }
     

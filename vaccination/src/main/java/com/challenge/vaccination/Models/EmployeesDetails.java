@@ -7,7 +7,7 @@ import java.util.Date;
 @Entity
 public class EmployeesDetails implements Serializable {
     @Id
-    private Long employeesdetailsid;
+    private String employeesdetailsid;
     private Date birthday;
     private String direction;
     private String phone;
@@ -18,7 +18,7 @@ public class EmployeesDetails implements Serializable {
 
     }
 
-    public EmployeesDetails(Long employeesdetailsid, Date birthday, String direction, String phone, boolean state, Employees employee) {
+    public EmployeesDetails(String  employeesdetailsid, Date birthday, String direction, String phone, boolean state, Employees employee) {
         this.employeesdetailsid = employeesdetailsid;
         this.birthday = birthday;
         this.direction = direction;
@@ -31,7 +31,7 @@ public class EmployeesDetails implements Serializable {
         this.state = state;
     }
 
-    public Long getEmployeesdetailsid() {
+    public String getEmployeesdetailsid() {
         return employeesdetailsid;
     }
 

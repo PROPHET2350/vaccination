@@ -7,7 +7,7 @@ import java.util.Date;
 @Entity
 public class VaccinationDetails implements Serializable {
     @Id
-    private Long vaccinationdetailsid;
+    private String vaccinationdetailsid;
     private String type;
     private Date vaccinationDate;
     private int doseNumber;
@@ -16,7 +16,7 @@ public class VaccinationDetails implements Serializable {
 
     protected VaccinationDetails() {}
 
-    public VaccinationDetails(Long vaccinationdetailsid, String type, Date vaccinationDate, int doseNumber, EmployeesDetails employeesDetails) {
+    public VaccinationDetails(String vaccinationdetailsid, String type, Date vaccinationDate, int doseNumber, EmployeesDetails employeesDetails) {
         this.vaccinationdetailsid = vaccinationdetailsid;
         this.type = type;
         this.vaccinationDate = vaccinationDate;
@@ -24,7 +24,7 @@ public class VaccinationDetails implements Serializable {
         this.employeesDetails = employeesDetails;
     }
 
-    public Long getVaccinationdetailsid() {
+    public String getVaccinationdetailsid() {
         return vaccinationdetailsid;
     }
 

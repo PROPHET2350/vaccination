@@ -34,8 +34,10 @@ class VaccinationApplicationTests {
 	private EmployeesServices es;
 	@Test
 	public void contextLoads() {
-		//Employees c = new Employees(1l,"asd","asd","asd","asd");
-		//Users u = new Users(1L,"asd",passwordEncoder.encode("asd"),"ADMIN",c);
+		Employees c = new Employees("1l","asd","asd","asd","asd");
+		employeesRepository.save(c);
+		Users u = new Users("1L","asd",passwordEncoder.encode("asd"),"ADMIN",c);
+		usersRepository.save(u);
 		//EmployeesDetails b = new EmployeesDetails(1L,Date.valueOf(LocalDate.now()),"asd","asd",true,c);
 		//VaccinationDetails a = new VaccinationDetails(1l,"sino",Date.valueOf(LocalDate.now()),2,b);
 		//System.out.println(this.vaccinationDetailsRepository.findByEmployeesDetailsEmployeesdetailsid(1L));

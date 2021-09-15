@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class EmployeesServices {
@@ -16,14 +17,14 @@ public class EmployeesServices {
     public EmployeesServices(EmployeesRepository employeesRepository) {
         this.employeesRepository = employeesRepository;
     }
-    public void CreateEmployee(Employees employee){
-        this.employeesRepository.save(employee);
+    public Employees CreateEmployee(Employees employee){
+        return this.employeesRepository.save(employee);
     }
-    public void UpdateEmployee(Employees employee){
-        this.employeesRepository.save(employee);
+    public Optional<Employees> searchById(String id){
+        return this.employeesRepository.findById(id);
     }
-    public void DeleteEmployee(Employees employee){
-        this.employeesRepository.delete(employee);
+    public void DeleteEmployee(String id){
+      this.employeesRepository.deleteById(id);
     }
     public List<Employees> searchAll(){
         return employeesRepository.findAll();

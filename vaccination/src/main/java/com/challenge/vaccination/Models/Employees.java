@@ -6,18 +6,23 @@ import java.io.Serializable;
 
 @Entity
 public class Employees implements Serializable {
-    @Id
-    private Long employeeid;
+    @Id()
+    @Column(columnDefinition = "TEXT")
+    private String employeeid;
+    @Column(columnDefinition = "TEXT")
     private String dni;
+    @Column(columnDefinition = "TEXT")
     private String name;
+    @Column(columnDefinition = "TEXT")
     private String lastname;
+    @Column(columnDefinition = "TEXT")
     private String mail;
     private boolean status;
 
     protected Employees() {
     }
 
-    public Employees(Long employeeid, String dni, String name, String lastname, String mail) {
+    public Employees(String employeeid, String dni, String name, String lastname, String mail) {
         this.employeeid = employeeid;
         this.dni = dni;
         this.name = name;
@@ -26,7 +31,7 @@ public class Employees implements Serializable {
         this.status = false;
     }
 
-    public Long getEmployeeid() {
+    public String getEmployeeid() {
         return employeeid;
     }
 

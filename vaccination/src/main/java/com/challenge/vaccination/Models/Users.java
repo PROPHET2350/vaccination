@@ -7,7 +7,7 @@ import java.io.Serializable;
 public class Users implements Serializable {
 
     @Id
-    private Long userid;
+    private String userid;
     private String username;
     private String password;
     private String role;
@@ -18,7 +18,7 @@ public class Users implements Serializable {
 
     }
 
-    public Users(Long userid, String username, String password, String role, Employees employee) {
+    public Users(String userid, String username, String password, String role, Employees employee) {
         this.userid = userid;
         this.username = username;
         this.password = password;
