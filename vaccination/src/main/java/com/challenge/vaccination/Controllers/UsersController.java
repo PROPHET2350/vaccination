@@ -37,7 +37,7 @@ public class UsersController {
 
     @PostMapping("/api/v1/user/my-account")
     public ResponseEntity<Users> searchMyAccountByEmployeeId(@RequestParam Map<String,String> body){
-        Users us = usersServices.searchByEmployeeId(body.get("id"));
+        Users us = usersServices.searchById(body.get("id"));
         if (us != null){
             return ResponseEntity.status(201).body(us);
         }else{

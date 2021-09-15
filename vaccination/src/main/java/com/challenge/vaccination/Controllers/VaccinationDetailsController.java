@@ -44,8 +44,9 @@ public class VaccinationDetailsController {
     public ResponseEntity<VaccinationDetails> AddVaccinationDetails(@RequestParam Map<String,String> body) throws Exception{
         Users us = usersServices.searchById(body.get("id"));
         EmployeesDetails ed = employeesDetailsServices.searchByEmployeeId(us.getEmployee().getEmployeeid());
-        Date bd = new SimpleDateFormat("dd/MM/yyyy").parse(body.get("bd"));
-        VaccinationDetails vaccinationDetails = new VaccinationDetails(UUID.randomUUID().toString(),body.get("type"),bd,Integer.parseInt(body.get("number")),ed);
+        Date bd = new SimpleDateFormat("dd/MM/yyyy").parse(body.get("date"));
+        VaccinationDetails vaccinationDetails = new VaccinationDetails(UUID.randomUUID().toString(),
+                body.get("type"),bd,Integer.parseInt(body.get("number")),ed);
         if (vaccinationDetailsService.CreateVaccinationDetails(vaccinationDetails) != null){
             return ResponseEntity.status(201).body(vaccinationDetailsService.CreateVaccinationDetails(vaccinationDetails));
         }else{
@@ -56,9 +57,10 @@ public class VaccinationDetailsController {
     public ResponseEntity<VaccinationDetails> UpdateVaccinationDetails(@RequestParam Map<String,String> body) throws Exception{
         Users us = usersServices.searchById(body.get("id"));
         EmployeesDetails ed = employeesDetailsServices.searchByEmployeeId(us.getEmployee().getEmployeeid());
-        Date bd = new SimpleDateFormat("dd/MM/yyyy").parse(body.get("bd"));
+        Date bd = new SimpleDateFormat("dd/MM/yyyy").parse(body.get("date"));
         VaccinationDetails vaccinationDetails = vaccinationDetailsService.findByEmployeeDetailsId(ed.getEmployeesdetailsid());
-        VaccinationDetails newVaccinationDetails = new VaccinationDetails(vaccinationDetails.getVaccinationdetailsid(),body.get("type"),bd,Integer.parseInt(body.get("number")),ed);
+        VaccinationDetails newVaccinationDetails = new VaccinationDetails(vaccinationDetails.getVaccinationdetailsid(),
+                body.get("type"),bd,Integer.parseInt(body.get("number")),ed);
         if (vaccinationDetailsService.CreateVaccinationDetails(newVaccinationDetails) != null){
             return ResponseEntity.status(201).body(vaccinationDetailsService.CreateVaccinationDetails(newVaccinationDetails));
         }else{
