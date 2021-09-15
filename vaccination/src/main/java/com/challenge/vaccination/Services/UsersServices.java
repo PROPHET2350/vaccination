@@ -30,7 +30,7 @@ public class UsersServices implements UserDetailsService {
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
         Users us = usersRepository.findByUsername(s);
         List<GrantedAuthority> rol = new ArrayList<>();
-        rol.add(new SimpleGrantedAuthority(us.getRole()));
+        rol.add(new SimpleGrantedAuthority("ROLE_"+us.getRole()));
         return new User(us.getUsername(),us.getPassword(),rol);
     }
 }

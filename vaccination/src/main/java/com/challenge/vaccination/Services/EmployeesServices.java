@@ -26,6 +26,6 @@ public class EmployeesServices {
         this.employeesRepository.delete(employee);
     }
     public List<Employees> searchAll(){
-        return  employeesRepository.findAll();
+        return employeesRepository.findAll();
     }
 }

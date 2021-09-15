@@ -2,9 +2,10 @@ package com.challenge.vaccination.Models;
 
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
-public class Employees {
+public class Employees implements Serializable {
     @Id
     private Long employeeid;
     private String dni;
@@ -12,12 +13,6 @@ public class Employees {
     private String lastname;
     private String mail;
     private boolean status;
-    @OneToOne(optional = true,cascade = CascadeType.ALL,fetch = FetchType.LAZY,mappedBy = "employee")
-    @JoinColumn(name = "userid")
-    private Users user;
-    @OneToOne(optional = true,cascade = CascadeType.ALL,fetch = FetchType.LAZY,mappedBy = "employee")
-    @JoinColumn(name = "employeesdetailsid")
-    private EmployeesDetails details;
 
     protected Employees() {
     }
@@ -54,24 +49,7 @@ public class Employees {
     public boolean isStatus() {
         return status;
     }
-
-    public Users getUser() {
-        return user;
-    }
-
-    public EmployeesDetails getDetails() {
-        return details;
-    }
-
     public void setStatus(boolean status) {
         this.status = status;
-    }
-
-    public void setUser(Users user) {
-        this.user = user;
-    }
-
-    public void setDetails(EmployeesDetails details) {
-        this.details = details;
     }
 }

@@ -1,22 +1,19 @@
 package com.challenge.vaccination.Models;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 @Entity
-public class EmployeesDetails {
+public class EmployeesDetails implements Serializable {
     @Id
     private Long employeesdetailsid;
     private Date birthday;
     private String direction;
     private String phone;
     private boolean state;
-    @OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    @OneToOne(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
     private Employees employee;
-    @OneToOne(optional = true,cascade = CascadeType.ALL,fetch = FetchType.LAZY,mappedBy = "employeesDetails")
-    @JoinColumn(name = "vaccinationdetailsid")
-    private VaccinationDetails vaccinationDetails;
-
     protected EmployeesDetails() {
 
     }
@@ -32,10 +29,6 @@ public class EmployeesDetails {
 
     public void setState(boolean state) {
         this.state = state;
-    }
-
-    public void setVaccinationDetails(VaccinationDetails vaccinationDetails) {
-        this.vaccinationDetails = vaccinationDetails;
     }
 
     public Long getEmployeesdetailsid() {
@@ -60,9 +53,5 @@ public class EmployeesDetails {
 
     public Employees getEmployee() {
         return employee;
-    }
-
-    public VaccinationDetails getVaccinationDetails() {
-        return vaccinationDetails;
     }
 }

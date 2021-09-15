@@ -24,5 +24,7 @@ public class VaccinationDetailsService {
     public void DeleteVaccinationDetails(VaccinationDetails vaccinationDetails){
         this.vaccinationDetailsRepository.delete(vaccinationDetails);
     }
-
+    public VaccinationDetails findByEmployeeDetailsId(Long id){
+        return this.vaccinationDetailsRepository.findByEmployeesDetailsEmployeesdetailsid(id);
+    }
 }
