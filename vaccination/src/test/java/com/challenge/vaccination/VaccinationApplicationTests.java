@@ -1,48 +1,6 @@
 package com.challenge.vaccination;
 
-import com.challenge.vaccination.Models.Employees;
-import com.challenge.vaccination.Models.EmployeesDetails;
-import com.challenge.vaccination.Models.Users;
-import com.challenge.vaccination.Models.VaccinationDetails;
-import com.challenge.vaccination.Repositories.EmployeesDetailsRepository;
-import com.challenge.vaccination.Repositories.EmployeesRepository;
-import com.challenge.vaccination.Repositories.UsersRepository;
-import com.challenge.vaccination.Repositories.VaccinationDetailsRepository;
-import com.challenge.vaccination.Services.EmployeesServices;
-import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.security.crypto.password.PasswordEncoder;
+import org.junit.runner.RunWith;
+import org.junit.runners.Suite;
 
-import java.sql.Date;
-import java.time.LocalDate;
-
-@SpringBootTest
-class VaccinationApplicationTests {
-
-	@Autowired
-	private EmployeesRepository employeesRepository;
-	@Autowired
-	private EmployeesDetailsRepository employeesDetailsRepository;
-	@Autowired
-	private VaccinationDetailsRepository vaccinationDetailsRepository;
-	@Autowired
-	private UsersRepository usersRepository;
-	@Autowired
-	private PasswordEncoder passwordEncoder;
-	@Autowired
-	private EmployeesServices es;
-	@Test
-	public void contextLoads() {
-		Employees c = new Employees("1l","asd","asd","asd","asd");
-		employeesRepository.save(c);
-		Users u = new Users("1L","asd",passwordEncoder.encode("asd"),"ADMIN",c);
-		usersRepository.save(u);
-		//EmployeesDetails b = new EmployeesDetails(1L,Date.valueOf(LocalDate.now()),"asd","asd",true,c);
-		//VaccinationDetails a = new VaccinationDetails(1l,"sino",Date.valueOf(LocalDate.now()),2,b);
-		//System.out.println(this.vaccinationDetailsRepository.findByEmployeesDetailsEmployeesdetailsid(1L));
-		//System.out.println(usersRepository.save(u));
-		System.out.println(es.searchAll());
- 	}
-
-}
+public class VaccinationApplicationTests { }

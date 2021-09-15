@@ -51,7 +51,7 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
         http.csrf().disable()
             .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
             .and().authorizeRequests()
-            .antMatchers("/login","/api/v1/user/**","/api/v1/admin/**")
+            .antMatchers("/login")
             .permitAll()
             .anyRequest()
             .authenticated().and()

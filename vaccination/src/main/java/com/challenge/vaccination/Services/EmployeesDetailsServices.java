@@ -5,6 +5,8 @@ import com.challenge.vaccination.Repositories.EmployeesDetailsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class EmployeesDetailsServices {
 
@@ -18,11 +20,8 @@ public class EmployeesDetailsServices {
     public EmployeesDetails CreateDetail(EmployeesDetails employeesDetail){
         return this.employeesDetailsRepository.save(employeesDetail);
     }
-    public void UpdateDetail(EmployeesDetails employeesDetail){
-        this.employeesDetailsRepository.save(employeesDetail);
-    }
-    public void DeleteDetail(EmployeesDetails employeesDetail){
-        this.employeesDetailsRepository.delete(employeesDetail);
+    public List<EmployeesDetails> searchByState(boolean state){
+        return this.employeesDetailsRepository.findByState(state);
     }
     public EmployeesDetails searchByEmployeeId(String id){
         return this.employeesDetailsRepository.findByEmployeeEmployeeid(id);

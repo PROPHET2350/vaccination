@@ -5,6 +5,7 @@ import com.challenge.vaccination.Repositories.VaccinationDetailsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -17,14 +18,14 @@ public class VaccinationDetailsService {
         this.vaccinationDetailsRepository = vaccinationDetailsRepository;
     }
 
-    public void CreateVaccinationDetails(VaccinationDetails vaccinationDetails){
-        this.vaccinationDetailsRepository.save(vaccinationDetails);
+    public VaccinationDetails CreateVaccinationDetails(VaccinationDetails vaccinationDetails){
+        return this.vaccinationDetailsRepository.save(vaccinationDetails);
     }
-    public void UpdateVaccinationDetails(VaccinationDetails vaccinationDetails){
-        this.vaccinationDetailsRepository.save(vaccinationDetails);
+    public List<VaccinationDetails> filterByType(String type){
+        return this.vaccinationDetailsRepository.findByType(type);
     }
-    public void DeleteVaccinationDetails(VaccinationDetails vaccinationDetails){
-        this.vaccinationDetailsRepository.delete(vaccinationDetails);
+    public List<VaccinationDetails> filterByDate(Date first, Date end){
+        return this.vaccinationDetailsRepository.findByVaccinationDateBetween(first, end);
     }
     public VaccinationDetails findByEmployeeDetailsId(String id){
         return this.vaccinationDetailsRepository.findByEmployeesDetailsEmployeesdetailsid(id);
