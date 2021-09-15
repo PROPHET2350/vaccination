@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface VaccinationDetailsRepository extends JpaRepository<VaccinationDetails,Long> {
+    VaccinationDetails findByEmployeesDetailsEmployeesdetailsid(Long id);
 }
