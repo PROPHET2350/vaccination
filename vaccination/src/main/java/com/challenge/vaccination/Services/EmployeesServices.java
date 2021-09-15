@@ -20,8 +20,8 @@ public class EmployeesServices {
     public Employees CreateEmployee(Employees employee){
         return this.employeesRepository.save(employee);
     }
-    public Optional<Employees> searchById(String id){
-        return this.employeesRepository.findById(id);
+    public Employees searchById(String id){
+        return this.employeesRepository.findByEmployeeid(id);
     }
     public void DeleteEmployee(String id){
       this.employeesRepository.deleteById(id);

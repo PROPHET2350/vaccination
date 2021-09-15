@@ -5,6 +5,8 @@ import com.challenge.vaccination.Repositories.VaccinationDetailsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class VaccinationDetailsService {
 
@@ -26,5 +28,8 @@ public class VaccinationDetailsService {
     }
     public VaccinationDetails findByEmployeeDetailsId(String id){
         return this.vaccinationDetailsRepository.findByEmployeesDetailsEmployeesdetailsid(id);
+    }
+    public List<VaccinationDetails> searchAllDetails(){
+        return this.vaccinationDetailsRepository.findAll();
     }
 }

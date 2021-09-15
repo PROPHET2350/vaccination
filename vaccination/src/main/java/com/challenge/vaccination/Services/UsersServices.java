@@ -33,4 +33,14 @@ public class UsersServices implements UserDetailsService {
         rol.add(new SimpleGrantedAuthority("ROLE_"+us.getRole()));
         return new User(us.getUsername(),us.getPassword(),rol);
     }
+
+    public Users updateUser(Users us){
+        return usersRepository.save(us);
+    }
+    public Users searchById(String id){
+        return usersRepository.findByUserid(id);
+    }
+    public Users searchByEmployeeId(String id){
+        return usersRepository.findByEmployeeEmployeeid(id);
+    }
 }

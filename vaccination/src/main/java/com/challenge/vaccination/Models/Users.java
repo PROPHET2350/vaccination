@@ -26,6 +26,14 @@ public class Users implements Serializable {
         this.employee = employee;
     }
 
+    public String getUserid() {
+        return userid;
+    }
+
+    public Employees getEmployee() {
+        return employee;
+    }
+
     public String getRole() {
         return role;
     }
